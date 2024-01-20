@@ -28,14 +28,14 @@ public class TriggerInputDetector : MonoBehaviour
         if (_inputData._leftController.TryGetFeatureValue(CommonUsages.trigger, out float leftTriggerValue))
         {
             //_leftMaxScore = theFloat;
-            Debug.Log(leftTriggerValue);
+        //    Debug.Log(leftTriggerValue);
             GetLeftTriggerValue = leftTriggerValue;
         }
 
         if (_inputData._leftController.TryGetFeatureValue(CommonUsages.grip, out float leftGripValue))
         {
             //_leftMaxScore = theFloat;
-            Debug.Log(leftGripValue);
+       //     Debug.Log(leftGripValue);
             GetLeftGripValue = leftGripValue;
         }
 
@@ -43,14 +43,14 @@ public class TriggerInputDetector : MonoBehaviour
         if (_inputData._rightController.TryGetFeatureValue(CommonUsages.trigger, out float rightTriggerValue))
         {
             //_leftMaxScore = theFloat;
-            Debug.Log(rightTriggerValue);
+         //   Debug.Log(rightTriggerValue);
             GetRightTriggerValue = rightTriggerValue;
         }
 
         if (_inputData._rightController.TryGetFeatureValue(CommonUsages.grip, out float rightGripValue))
         {
             //_leftMaxScore = theFloat;
-            Debug.Log(rightGripValue);
+        //    Debug.Log(rightGripValue);
             GetRightGripValue = rightGripValue;
         }
 
