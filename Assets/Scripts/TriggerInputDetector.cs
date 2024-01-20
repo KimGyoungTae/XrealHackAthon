@@ -5,8 +5,12 @@ using TMPro;
 
 public class TriggerInputDetector : MonoBehaviour
 {
-    public TextMeshProUGUI leftScoreDisplay;
-    public TextMeshProUGUI rightScoreDisplay;
+ 
+
+    public float GetLeftTriggerValue;
+    public float GetLeftGripValue;
+    public float GetRightTriggerValue;
+    public float GetRightGripValue;
 
     private InputData _inputData;
     private float _leftMaxScore = 0f;
@@ -21,24 +25,36 @@ public class TriggerInputDetector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_inputData._leftController.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue))
+        if (_inputData._leftController.TryGetFeatureValue(CommonUsages.trigger, out float leftTriggerValue))
         {
             //_leftMaxScore = theFloat;
-            leftScoreDisplay.text = triggerValue.ToString("#.00");
-            Debug.Log("triggerValue: " + triggerValue);
+            Debug.Log(leftTriggerValue);
+            GetLeftTriggerValue = leftTriggerValue;
         }
 
-        if (_inputData._rightController.TryGetFeatureValue(CommonUsages.primaryButton, out bool Abutton))
+        if (_inputData._leftController.TryGetFeatureValue(CommonUsages.grip, out float leftGripValue))
         {
             //_leftMaxScore = theFloat;
-            rightScoreDisplay.text = Abutton.ToString();
-            Debug.Log("A button: " + Abutton);
+            Debug.Log(leftGripValue);
+            GetLeftGripValue = leftGripValue;
         }
 
-        if (_inputData._rightController.TryGetFeatureValue(CommonUsages.secondaryButton, out bool Bbutton))
+
+        if (_inputData._rightController.TryGetFeatureValue(CommonUsages.trigger, out float rightTriggerValue))
         {
-            Debug.Log("B button: " + Bbutton);
+            //_leftMaxScore = theFloat;
+            Debug.Log(rightTriggerValue);
+            GetRightTriggerValue = rightTriggerValue;
         }
+
+        if (_inputData._rightController.TryGetFeatureValue(CommonUsages.grip, out float rightGripValue))
+        {
+            //_leftMaxScore = theFloat;
+            Debug.Log(rightGripValue);
+            GetRightGripValue = rightGripValue;
+        }
+
+
 
         //triggerValue = ((float)_inputData._leftController.characteristics);
         //Debug.Log("triggerValue is: " + triggerValue);
