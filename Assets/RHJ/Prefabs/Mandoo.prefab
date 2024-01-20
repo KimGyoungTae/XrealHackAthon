@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7693965969087509131}
   - component: {fileID: 6757635014008578006}
   m_Layer: 0
-  m_Name: Test
+  m_Name: Mandoo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
