@@ -1459,9 +1459,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1627106875}
-  - component: {fileID: 1627106874}
-  - component: {fileID: 1627106876}
-  - component: {fileID: 1627106877}
   - component: {fileID: 1627106878}
   m_Layer: 0
   m_Name: ObjectManager
@@ -1470,25 +1467,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1627106874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1627106873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52144fe4c5233224480b6694912e7ff1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  respawnObject: 0
-  destroyObject: 0
-  obj:
-  - {fileID: 7297469882689713636, guid: 183dd437759c74d47b898f6b6d8b0fd1, type: 3}
-  spawnPosition: {fileID: 996319140}
-  activeObject: {fileID: 0}
-  score: 0
 --- !u!4 &1627106875
 Transform:
   m_ObjectHideFlags: 0
@@ -1504,43 +1482,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1627106876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1627106873}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c558c9f3be64f84ca9ad20e528534cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectManager: {fileID: 1627106874}
-  triggerInputDetector: {fileID: 1464656515}
-  maxRotationSpeed: 20
-  rotationSpeedChangeSpeed: 3
-  rotateTaeyop: {fileID: 0}
-  maxTime: 3
-  average_input: 0
---- !u!114 &1627106877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1627106873}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fb22a070087cd843a49eddb885d4cc4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerInputDetector: {fileID: 1464656515}
-  average_input: 0
-  maxRotationSpeed: 20
-  rotationSpeedChangeSpeed: 3
-  triggerStabilityThreshold: 0.1
-  rotateTaeyop: {fileID: 0}
 --- !u!114 &1627106878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1554,7 +1495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objPrefab:
-  - {fileID: 7267063955359462722, guid: 6d5253cf339da444ea92d6d5b934187c, type: 3}
+  - {fileID: 7861160719180755303, guid: 225a0346162ec9e4d9c8e867069bb898, type: 3}
   spawnPosition: {fileID: 996319140}
   activeObj: []
   score: 0

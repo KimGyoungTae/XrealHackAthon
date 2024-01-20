@@ -6,18 +6,16 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class SizeChanger : MonoBehaviour
 {
 
-    [SerializeField]
-    private ObjectManager objectManager;
-    [SerializeField]
+    //[SerializeField]
+    //private ObjectManager objectManager;
     private TriggerInputDetector triggerInputDetector;
-    [SerializeField]
     private Creatrue creatrue;
 
     public float maxRotationSpeed = 100f; // 최대 회전 속도
     private float currentRotationSpeed; // 현재 회전 속도
     public float rotationSpeedChangeSpeed = 1f; // 회전 속도 변화 속도
 
-    public GameObject rotateTaeyop;
+    //public GameObject rotateTaeyop;
     //   public XRController controller;
 
     public float maxTime = 3f; // full-grip time
@@ -37,6 +35,7 @@ public class SizeChanger : MonoBehaviour
 
     private void Start()
     {
+        triggerInputDetector = FindObjectOfType<TriggerInputDetector>();
         creatrue = GetComponent<Creatrue>();
     }
 
@@ -45,33 +44,40 @@ public class SizeChanger : MonoBehaviour
         //average_input = (test_LG + test_LT + test_RG + test_RT) / 4f;
         average_input = (triggerInputDetector.GetLeftGripValue + triggerInputDetector.GetRightGripValue + triggerInputDetector.GetLeftTriggerValue + triggerInputDetector.GetRightTriggerValue) / 4f;
 
-        if(average_input != 0 )
-        {
-            RotateChanger(average_input);
-        }
+        //if(average_input != 0 )
+        //{
+        //    RotateChanger(average_input);
+        //}
 
-        if (objectManager.activeObject)
+        //if ()
+        //{
+        //    SizeChange(average_input);
+        //}
+
+        //if (!objectManager.activeObject && average_input == 0)
+        //{
+        //    objectManager.respawnObject = true;
+        //}
+
+        if (average_input != 0)
         {
             SizeChange(average_input);
-        }
-
-        if (!objectManager.activeObject && average_input == 0)
-        {
-            objectManager.respawnObject = true;
         }
     }
 
     void SizeChange(float triggerinput)
     {
         float newScale = Mathf.Lerp(0.05f, 1.0f, triggerinput);
-        objectManager.activeObject.transform.localScale = new Vector3(newScale, newScale, newScale);
+        transform.localScale = new Vector3(newScale, newScale, newScale);
      //   objectManager.activeObject.transform.rotation = controller.transform.rotation;
 
         if (newScale == 1.0f)
         {
             maxTime -= Time.deltaTime;
-            StartCoroutine(Shake());
-         
+            
+            StartCoroutine(SShake());
+            Debug.Log(".");
+
             if (maxTime <= 0)
             {
                 maxTime = 0;
@@ -87,45 +93,70 @@ public class SizeChanger : MonoBehaviour
         
     }
 
-    void RotateChanger(float triggerinput)
+    //void RotateChanger(float triggerinput)
+    //{
+    //    // 목표 회전 속도를 0에서 maxRotationSpeed 사이로 매핑
+    //    float targetRotationSpeed = Mathf.Lerp(0, maxRotationSpeed, triggerinput);
+
+    //    // 현재 회전 속도를 서서히 목표 회전 속도로 변경
+    //    currentRotationSpeed = Mathf.Lerp(currentRotationSpeed, targetRotationSpeed, Time.deltaTime * rotationSpeedChangeSpeed);
+
+    //    // 시간에 따라 Z 회전값 증가
+    //    float zRotation = Time.time * currentRotationSpeed;
+
+    //    // 오브젝트의 회전을 설정
+    //    rotateTaeyop.transform.rotation = Quaternion.Euler(0, 0, zRotation);
+
+    //}
+
+
+
+    //IEnumerator Shake()
+    //{
+    //    if (!objectManager.activeObject)
+    //    {
+    //        yield return null;
+    //    }
+
+    //    float t = 1f;
+    //    float shakePower = 0.3f;
+    //    Vector3 origin = objectManager.activeObject.transform.position;
+
+    //    while (t > 0f && objectManager.activeObject)
+    //    {
+    //        t -= 0.05f;
+    //        objectManager.activeObject.transform.position = origin + (Vector3) Random.insideUnitCircle * shakePower * t;
+    //        yield return null;
+    //    }
+
+    //    if (objectManager.activeObject)
+    //    {
+    //        objectManager.activeObject.transform.position = origin;
+    //    }
+    //}
+    IEnumerator SShake()
     {
-        // 목표 회전 속도를 0에서 maxRotationSpeed 사이로 매핑
-        float targetRotationSpeed = Mathf.Lerp(0, maxRotationSpeed, triggerinput);
-
-        // 현재 회전 속도를 서서히 목표 회전 속도로 변경
-        currentRotationSpeed = Mathf.Lerp(currentRotationSpeed, targetRotationSpeed, Time.deltaTime * rotationSpeedChangeSpeed);
-
-        // 시간에 따라 Z 회전값 증가
-        float zRotation = Time.time * currentRotationSpeed;
-
-        // 오브젝트의 회전을 설정
-        rotateTaeyop.transform.rotation = Quaternion.Euler(0, 0, zRotation);
-
-    }
-
-
-
-    IEnumerator Shake()
-    {
-        if (!objectManager.activeObject)
+        if (gameObject)
         {
             yield return null;
         }
+
 
         float t = 1f;
-        float shakePower = 0.3f;
-        Vector3 origin = objectManager.activeObject.transform.position;
-        
-        while (t > 0f && objectManager.activeObject)
+        float shakePower = 100f;
+        Vector3 origin = gameObject.transform.position;
+ 
+        while (t > 0f && gameObject)
         {
             t -= 0.05f;
-            objectManager.activeObject.transform.position = origin + (Vector3) Random.insideUnitCircle * shakePower * t;
+            gameObject.transform.position = origin + (Vector3)Random.insideUnitCircle * shakePower * t;
+
             yield return null;
         }
 
-        if (objectManager.activeObject)
+        if (gameObject)
         {
-            objectManager.activeObject.transform.position = origin;
+            gameObject.transform.position = origin;
         }
     }
 }

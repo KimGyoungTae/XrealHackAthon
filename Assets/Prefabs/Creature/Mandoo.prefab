@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7573739761081303406}
   - component: {fileID: 3622747897188684417}
   - component: {fileID: 85589103114795052}
+  - component: {fileID: 5008085088130065078}
   m_Layer: 0
   m_Name: Mandoo
   m_TagString: Untagged
@@ -147,3 +148,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5008085088130065078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2272291220139028364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c558c9f3be64f84ca9ad20e528534cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectManager: {fileID: 0}
+  triggerInputDetector: {fileID: 0}
+  creatrue: {fileID: 0}
+  maxRotationSpeed: 100
+  rotationSpeedChangeSpeed: 1
+  rotateTaeyop: {fileID: 0}
+  maxTime: 3
+  average_input: 0

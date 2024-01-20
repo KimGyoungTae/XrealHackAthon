@@ -6,9 +6,7 @@ using UnityEngine;
 public class RotateChanger : MonoBehaviour
 {
 
-    [SerializeField]
     private TriggerInputDetector triggerInputDetector;
-    [SerializeField]
     private Creatrue creatrue;
     public float average_input = 0;
 
@@ -76,6 +74,8 @@ public class RotateChanger : MonoBehaviour
                 StopCoroutine(Shake());
                 //   objectManager.destroyObject = true;
                 creatrue.completed = true;
+                RotateChanger rotatechanger  = GetComponent<RotateChanger>();   
+                rotatechanger.enabled = false;
               //  creatrue.state = Creatrue.State.Moving;
             }
         }
