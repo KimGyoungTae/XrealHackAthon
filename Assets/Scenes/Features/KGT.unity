@@ -386,68 +386,6 @@ Transform:
   - {fileID: 705507995}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &643202818
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 933601085803450853, guid: b8093b869015f1d48b64da121cbbb93c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.5191144
-      objectReference: {fileID: 0}
-    - target: {fileID: 933601085803450853, guid: b8093b869015f1d48b64da121cbbb93c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 933601085803450853, guid: b8093b869015f1d48b64da121cbbb93c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.2884767
-      objectReference: {fileID: 0}
-    - target: {fileID: 933601085803450853, guid: b8093b869015f1d48b64da121cbbb93c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.89646393
-      objectReference: {fileID: 0}
-    - target: {fileID: 933601085803450853, guid: b8093b869015f1d48b64da121cbbb93c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 933601085803450853, guid: b8093b869015f1d48b64da121cbbb93c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.44311672
-      objectReference: {fileID: 0}
-    - target: {fileID: 933601085803450853, guid: b8093b869015f1d48b64da121cbbb93c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 933601085803450853, guid: b8093b869015f1d48b64da121cbbb93c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 933601085803450853, guid: b8093b869015f1d48b64da121cbbb93c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 52.606
-      objectReference: {fileID: 0}
-    - target: {fileID: 933601085803450853, guid: b8093b869015f1d48b64da121cbbb93c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3941975601153294988, guid: b8093b869015f1d48b64da121cbbb93c, type: 3}
-      propertyPath: m_Name
-      value: Taeyop
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b8093b869015f1d48b64da121cbbb93c, type: 3}
---- !u!1 &643202819 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3775085109332102582, guid: b8093b869015f1d48b64da121cbbb93c, type: 3}
-  m_PrefabInstance: {fileID: 643202818}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -752,7 +690,7 @@ Transform:
   m_GameObject: {fileID: 996319139}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.937699, y: 0.96089476, z: 0.7060214}
+  m_LocalPosition: {x: 0.937699, y: 0, z: 0.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1524,6 +1462,7 @@ GameObject:
   - component: {fileID: 1627106874}
   - component: {fileID: 1627106876}
   - component: {fileID: 1627106877}
+  - component: {fileID: 1627106878}
   m_Layer: 0
   m_Name: ObjectManager
   m_TagString: Untagged
@@ -1581,7 +1520,7 @@ MonoBehaviour:
   triggerInputDetector: {fileID: 1464656515}
   maxRotationSpeed: 20
   rotationSpeedChangeSpeed: 3
-  rotateTaeyop: {fileID: 643202819}
+  rotateTaeyop: {fileID: 0}
   maxTime: 3
   average_input: 0
 --- !u!114 &1627106877
@@ -1591,7 +1530,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627106873}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8fb22a070087cd843a49eddb885d4cc4, type: 3}
   m_Name: 
@@ -1601,7 +1540,24 @@ MonoBehaviour:
   maxRotationSpeed: 20
   rotationSpeedChangeSpeed: 3
   triggerStabilityThreshold: 0.1
-  rotateTaeyop: {fileID: 643202819}
+  rotateTaeyop: {fileID: 0}
+--- !u!114 &1627106878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627106873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f770a1eb2903a4183861e41d6cb2d5e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objPrefab:
+  - {fileID: 7267063955359462722, guid: 6d5253cf339da444ea92d6d5b934187c, type: 3}
+  spawnPosition: {fileID: 996319140}
+  activeObj: []
+  score: 0
 --- !u!1 &1825280434
 GameObject:
   m_ObjectHideFlags: 0
@@ -2040,4 +1996,3 @@ SceneRoots:
   - {fileID: 1464656516}
   - {fileID: 1627106875}
   - {fileID: 996319140}
-  - {fileID: 643202818}

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using UnityEngine;
 
 public class RotateChanger : MonoBehaviour
@@ -7,6 +8,8 @@ public class RotateChanger : MonoBehaviour
 
     [SerializeField]
     private TriggerInputDetector triggerInputDetector;
+    [SerializeField]
+    private Creatrue creatrue;
     public float average_input = 0;
 
     public float maxRotationSpeed = 100f; // 최대 회전 속도
@@ -16,8 +19,11 @@ public class RotateChanger : MonoBehaviour
     private float triggerStabilityTimer; // triggerInput의 안정성을 체크하는 타이머
     private float currentRotationSpeed; // 현재 회전 속도
 
+    private float maxTime = 0f;
 
     public GameObject rotateTaeyop;
+
+
 
     /*
     [Range(0,1)]
@@ -30,7 +36,11 @@ public class RotateChanger : MonoBehaviour
     public float test_RG;
     */
 
-
+    private void Start()
+    {
+        triggerInputDetector = FindObjectOfType<TriggerInputDetector>();
+        creatrue = GetComponent<Creatrue>();
+    }
 
     void Update()
     {
@@ -53,6 +63,28 @@ public class RotateChanger : MonoBehaviour
 
         // 현재 회전에 Quaternion을 곱하여 새로운 회전을 얻음
         rotateTaeyop.transform.rotation *= rotationQuaternion;
+
+
+        if (zRotation == maxRotationSpeed)
+        {
+            maxTime += Time.deltaTime;
+            StartCoroutine(Shake());
+
+            if (maxTime >= 3)
+            {
+                maxTime = 3;
+                StopCoroutine(Shake());
+                //   objectManager.destroyObject = true;
+                creatrue.completed = true;
+              //  creatrue.state = Creatrue.State.Moving;
+            }
+        }
+
+        else
+        {
+            maxTime = 0.0f;
+        }
+
         /*
         // triggerInput 값이 변하지 않으면 타이머 증가
         if (triggerInput == lastTriggerInput)
@@ -86,5 +118,30 @@ public class RotateChanger : MonoBehaviour
         // 현재 triggerInput을 이전 값으로 저장
         lastTriggerInput = triggerInput;
         */
+    }
+
+
+    IEnumerator Shake()
+    {
+        if (gameObject)
+        {
+            yield return null;
+        }
+
+        float t = 1f;
+        float shakePower = 0.1f;
+        Vector3 origin = gameObject.transform.position;
+
+        while (t > 0f && gameObject)
+        {
+            t -= 0.05f;
+            gameObject.transform.position = origin + (Vector3)Random.insideUnitCircle * shakePower * t;
+            yield return null;
+        }
+
+        if (gameObject)
+        {
+            gameObject.transform.position = origin;
+        }
     }
 }

@@ -10,6 +10,8 @@ public class SizeChanger : MonoBehaviour
     private ObjectManager objectManager;
     [SerializeField]
     private TriggerInputDetector triggerInputDetector;
+    [SerializeField]
+    private Creatrue creatrue;
 
     public float maxRotationSpeed = 100f; // 최대 회전 속도
     private float currentRotationSpeed; // 현재 회전 속도
@@ -20,7 +22,8 @@ public class SizeChanger : MonoBehaviour
 
     public float maxTime = 3f; // full-grip time
     public float average_input = 0;
-    
+
+
     /*
     [Range(0,1)]
     public float test_LT;
@@ -31,8 +34,11 @@ public class SizeChanger : MonoBehaviour
     [Range(0, 1)]
     public float test_RG;
     */
-  
 
+    private void Start()
+    {
+        creatrue = GetComponent<Creatrue>();
+    }
 
     void Update()
     {
@@ -69,7 +75,8 @@ public class SizeChanger : MonoBehaviour
             if (maxTime <= 0)
             {
                 maxTime = 0;
-                objectManager.destroyObject = true;
+             //   objectManager.destroyObject = true;
+             creatrue.completed = true;
             }
         }
 

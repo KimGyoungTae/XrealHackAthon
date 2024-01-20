@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 85589103114795052}
   destRadius: 10
-  type: 2
+  type: 0
   state: 0
   completed: 0
   destPos: {x: 0, y: 0, z: 0}

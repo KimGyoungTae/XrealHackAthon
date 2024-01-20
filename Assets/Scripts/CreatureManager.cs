@@ -13,6 +13,13 @@ public class CreatrueManager : MonoBehaviour
     public List<GameObject> activeObj;
     public int score;
 
+
+
+    private void Start()
+    {
+        SpawnObject();
+    }
+
     public void SpawnObject()
     {
         int obj_index = Random.Range(0, objPrefab.Count);
