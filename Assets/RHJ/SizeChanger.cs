@@ -11,7 +11,7 @@ public class SizeChanger : MonoBehaviour
     [SerializeField]
     private TriggerInputDetector triggerInputDetector;
 
-    public XRController controller;
+ //   public XRController controller;
 
     public float maxTime = 3f; // full-grip time
     public float average_input = 0;
@@ -47,11 +47,11 @@ public class SizeChanger : MonoBehaviour
 
     void SizeChange(float triggerinput)
     {
-        float newScale = Mathf.Lerp(0.05f, 2.0f, triggerinput);
+        float newScale = Mathf.Lerp(0.05f, 1.0f, triggerinput);
         objectManager.activeObject.transform.localScale = new Vector3(newScale, newScale, newScale);
-        objectManager.activeObject.transform.rotation = controller.transform.rotation;
+     //   objectManager.activeObject.transform.rotation = controller.transform.rotation;
 
-        if (newScale == 2.0f)
+        if (newScale == 1.0f)
         {
             maxTime -= Time.deltaTime;
             StartCoroutine(Shake());
