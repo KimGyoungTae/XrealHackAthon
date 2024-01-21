@@ -5,7 +5,7 @@ using TMPro;
 
 public class TriggerInputDetector : MonoBehaviour
 {
- 
+
 
     public float GetLeftTriggerValue;
     public float GetLeftGripValue;
