@@ -134,12 +134,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+  completeParticle: {fileID: 6381962596638798055, guid: 80ac0c3d62f48914793ba4930e41dc73, type: 3}
   destRadius: 10
   type: 2
+  triggerInputDetector: {fileID: 0}
   state: 0
   completed: 0
   destPos: {x: 0, y: 0, z: 0}
   moveSpeed: 0.5
+  spawnReady: 0
 --- !u!114 &310914264684714711
 MonoBehaviour:
   m_ObjectHideFlags: 0

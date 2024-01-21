@@ -1603,6 +1603,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c39e84299ad7c934ba808dada0fe0de3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  triggerInputDetector: {fileID: 1464656515}
+  maxTime: 3
+  average_input: 0
 --- !u!65 &1953141417
 BoxCollider:
   m_ObjectHideFlags: 0

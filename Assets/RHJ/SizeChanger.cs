@@ -80,9 +80,9 @@ public class SizeChanger : MonoBehaviour
             if (maxTime <= 0)
             {
                 maxTime = 0;
-             //   objectManager.destroyObject = true;
-             if(creatrue != null)
-                 creatrue.completed = true;
+                //   objectManager.destroyObject = true;
+                if (creatrue != null)
+                    creatrue.completed = true;
             }
         }
 
@@ -143,14 +143,14 @@ public class SizeChanger : MonoBehaviour
 
 
         float t = 1f;
-        float shakePower = 100f;
+        float shakePower = 0.2f;
         Vector3 origin = gameObject.transform.position;
  
         while (t > 0f && gameObject)
         {
             t -= 0.05f;
             gameObject.transform.position = origin + (Vector3)Random.insideUnitCircle * shakePower * t;
-
+            Debug.Log("코루틴 실행 중..");
             yield return null;
         }
 

@@ -7,7 +7,7 @@ public class Creatrue : MonoBehaviour
 {
     [Header("Preset Fields")]
     [SerializeField] private Animator animator;
-    //[SerializeField] private GameObject completeParticle;
+    [SerializeField] private GameObject completeParticle;
     [SerializeField] private float destRadius = 10.0f;
     [SerializeField] private Type type = Type.None;
 
@@ -63,6 +63,8 @@ public class Creatrue : MonoBehaviour
             //state = State.Moving;
             //CreatrueManager.instance.SpawnObject();
             //state = State.Ready;
+            GameObject particleObject = Instantiate(completeParticle, transform.position, Quaternion.identity);
+            particleObject.SetActive(true);
             CreatrueManager.instance.DestroyObject(gameObject);
         }
 
@@ -88,15 +90,15 @@ public class Creatrue : MonoBehaviour
 
     void UpdateReady()
     {
-        if ((triggerInputDetector.GetLeftGripValue + triggerInputDetector.GetRightGripValue + triggerInputDetector.GetLeftTriggerValue + triggerInputDetector.GetRightTriggerValue) < 0.1f) ;
-        {
-            spawnReady = true;
-        }
-        if (spawnReady)
-        { 
-            CreatrueManager.instance.SpawnObject();
-            spawnReady = false;
-        }
+        //if ((triggerInputDetector.GetLeftGripValue + triggerInputDetector.GetRightGripValue + triggerInputDetector.GetLeftTriggerValue + triggerInputDetector.GetRightTriggerValue) < 0.1f) ;
+        //{
+        //    spawnReady = true;
+        //}
+        //if (spawnReady)
+        //{ 
+        //    CreatrueManager.instance.SpawnObject();
+        //    spawnReady = false;
+        //}
     }
 
     void UpdateMoving()

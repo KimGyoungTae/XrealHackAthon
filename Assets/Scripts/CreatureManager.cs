@@ -31,8 +31,21 @@ public class CreatrueManager : MonoBehaviour
 
         int obj_index = Random.Range(0, objPrefab.Count);
         GameObject go = Instantiate(objPrefab[obj_index], spawnPosition);
-        activeObj.Add(go);        
+        activeObj.Add(go);
     }
+
+    //public void SpawnObject()
+    //{
+    //    int obj_index = Random.Range(0, objPrefab.Count);
+
+    //    float randomX = Random.Range(-1.0f, 1.0f);
+    //    float randomZ = Random.Range(0.0f, 1.0f);
+
+    //    Vector3 randomOffset = new Vector3(randomX, 0, randomZ);
+
+    //    GameObject go = Instantiate(objPrefab[obj_index], spawnPosition.position + randomOffset, Quaternion.identity);
+    //    activeObj.Add(go);
+    //}
 
     public void DestroyObject(GameObject go)
     {
