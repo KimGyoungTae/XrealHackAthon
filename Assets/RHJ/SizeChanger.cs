@@ -67,22 +67,22 @@ public class SizeChanger : MonoBehaviour
 
     void SizeChange(float triggerinput)
     {
-        float newScale = Mathf.Lerp(0.05f, 1.0f, triggerinput);
+        float newScale = Mathf.Lerp(1f, 4.5f, triggerinput);
         transform.localScale = new Vector3(newScale, newScale, newScale);
      //   objectManager.activeObject.transform.rotation = controller.transform.rotation;
 
-        if (newScale == 1.0f)
+        if (newScale >= 4.4f)
         {
             maxTime -= Time.deltaTime;
             
             StartCoroutine(SShake());
-            Debug.Log(".");
 
             if (maxTime <= 0)
             {
                 maxTime = 0;
              //   objectManager.destroyObject = true;
-             creatrue.completed = true;
+             if(creatrue != null)
+                 creatrue.completed = true;
             }
         }
 

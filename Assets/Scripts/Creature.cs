@@ -11,6 +11,9 @@ public class Creatrue : MonoBehaviour
     [SerializeField] private float destRadius = 10.0f;
     [SerializeField] private Type type = Type.None;
 
+    [SerializeField]
+    private TriggerInputDetector triggerInputDetector;
+
     enum Type
     {
         None,
@@ -24,6 +27,7 @@ public class Creatrue : MonoBehaviour
         None,
         Break,
         Moving,
+        Ready,
         Idle,
     }
 
@@ -32,20 +36,24 @@ public class Creatrue : MonoBehaviour
     public bool completed = false;
     public Vector3 destPos;
     public float moveSpeed = 0.5f;
+    public bool spawnReady = false;
 
     private void Start()
     {
         state = State.Break;
 
 
-        Vector3 randPos;
+        //Vector3 randPos;
 
-        Vector3 randDir = Random.insideUnitSphere * Random.Range(0, destRadius);
-        //randDir.y = type == Type.Profeller ? 10.0f : 3.0f;
-        randDir.y = transform.position.y;
-        randPos = destPos + randDir;
+        //Vector3 randDir = Random.insideUnitSphere * Random.Range(0, destRadius);
+        ////randDir.y = type == Type.Profeller ? 10.0f : 3.0f;
+        //randDir.y = 0;
+        //randPos = transform.position + randDir;
 
-        destPos = randPos;
+        //destPos = randPos;
+        destPos = transform.position + new Vector3(0, 0, 10);
+
+        triggerInputDetector = FindObjectOfType<TriggerInputDetector>();
     }
 
     private void Update()
@@ -53,8 +61,9 @@ public class Creatrue : MonoBehaviour
         if (completed && state == State.Break)
         {
             //state = State.Moving;
-            Destroy(gameObject);
-            CreatrueManager.instance.SpawnObject();
+            //CreatrueManager.instance.SpawnObject();
+            //state = State.Ready;
+            CreatrueManager.instance.DestroyObject(gameObject);
         }
 
         switch (state)
@@ -68,11 +77,27 @@ public class Creatrue : MonoBehaviour
             case State.Idle:
                 UpdateIdle();
                 break;
+            case State.Ready:
+                UpdateReady();
+                break;
         }
     
     }
 
     void UpdateBreak() { }
+
+    void UpdateReady()
+    {
+        if ((triggerInputDetector.GetLeftGripValue + triggerInputDetector.GetRightGripValue + triggerInputDetector.GetLeftTriggerValue + triggerInputDetector.GetRightTriggerValue) < 0.1f) ;
+        {
+            spawnReady = true;
+        }
+        if (spawnReady)
+        { 
+            CreatrueManager.instance.SpawnObject();
+            spawnReady = false;
+        }
+    }
 
     void UpdateMoving()
     {
@@ -84,6 +109,7 @@ public class Creatrue : MonoBehaviour
         {
             animator.ResetTrigger("walk");
             Destroy(gameObject);
+     
         }
         else
         {

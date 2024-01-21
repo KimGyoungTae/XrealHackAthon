@@ -12,6 +12,7 @@ public class CreatrueManager : MonoBehaviour
 
     public List<GameObject> activeObj;
     public int score;
+    private float maxTime = 0f;
 
     public static CreatrueManager instance;
 
@@ -27,9 +28,10 @@ public class CreatrueManager : MonoBehaviour
 
     public void SpawnObject()
     {
+
         int obj_index = Random.Range(0, objPrefab.Count);
         GameObject go = Instantiate(objPrefab[obj_index], spawnPosition);
-        activeObj.Add(go);
+        activeObj.Add(go);        
     }
 
     public void DestroyObject(GameObject go)
@@ -38,6 +40,7 @@ public class CreatrueManager : MonoBehaviour
         {
             activeObj.Remove(go);
             Destroy(go);
+            Invoke("SpawnObject", 1.0f);
         }
         score++;
     }
