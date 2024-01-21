@@ -30,6 +30,7 @@ public class pressureDetecting : MonoBehaviour
 
     [SerializeField] private GameObject particle;
 
+    public float test = 0;
   
     float checkTime = 30f;
     float maxPain = 0f;
@@ -59,10 +60,12 @@ public class pressureDetecting : MonoBehaviour
 
         if (send)
         {
-            int painstate = (int)(maxPain);
+            send = false;
+            int painstate = (int)(sum*10);
             //checkTime = 10f;
             Debug.Log(painstate);
             udpnetwork.painState = painstate;
+            //udpnetwork.painState = (int)test;
             udpnetwork.send = true;
             //gameObject.SetActive(false);
         }
