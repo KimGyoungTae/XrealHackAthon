@@ -13,7 +13,12 @@ public class CreatrueManager : MonoBehaviour
     public List<GameObject> activeObj;
     public int score;
 
+    public static CreatrueManager instance;
 
+    private void Awake()
+    {
+        instance = this; 
+    }
 
     private void Start()
     {

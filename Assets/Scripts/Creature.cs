@@ -52,7 +52,9 @@ public class Creatrue : MonoBehaviour
     {
         if (completed && state == State.Break)
         {
-            state = State.Moving;
+            //state = State.Moving;
+            Destroy(gameObject);
+            CreatrueManager.instance.SpawnObject();
         }
 
         switch (state)
@@ -76,18 +78,20 @@ public class Creatrue : MonoBehaviour
     {
         Vector3 dir = destPos - transform.position;
         float distance = dir.magnitude;
+        Debug.Log(distance);
 
         if (distance < 0.1f)
         {
             animator.ResetTrigger("walk");
-            state = State.Idle;
+            Destroy(gameObject);
         }
         else
         {
             transform.position = Vector3.Lerp(transform.position, destPos, Time.deltaTime * moveSpeed);
             //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 20 * Time.deltaTime);
-
+            
             animator.SetTrigger("walk");
+            
         }
     }
 
