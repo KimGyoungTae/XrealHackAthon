@@ -136,10 +136,10 @@ public class SizeChanger : MonoBehaviour
     //}
     IEnumerator SShake()
     {
-        if (gameObject)
-        {
-            yield return null;
-        }
+        //if (gameObject)
+        //{
+        //    yield return null;
+        //}
 
 
         float t = 1f;
@@ -150,7 +150,7 @@ public class SizeChanger : MonoBehaviour
         {
             t -= 0.05f;
             gameObject.transform.position = origin + (Vector3)Random.insideUnitCircle * shakePower * t;
-            Debug.Log("内风凭 角青 吝..");
+           // Debug.Log("内风凭 角青 吝..");
             yield return null;
         }
 

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class pressureDetecting : MonoBehaviour
 {
-    //[SerializeField]
-    //private TriggerInputDetector triggerInputDetector;
+    [SerializeField]
+    private TriggerInputDetector triggerInputDetector;
     [SerializeField]
     private Material material;
-    //[SerializeField]
-    //private Udpnetwork udpnetwork;
+    [SerializeField]
+    private Udpnetwork udpnetwork;
     [SerializeField]
     private GameObject liquid;
 
@@ -17,6 +17,7 @@ public class pressureDetecting : MonoBehaviour
     [Range(0f, 10f)]
     float fixed_input = 0;
 
+    /*
     [Range(0, 1)]
     public float test_LT;
     [Range(0, 1)]
@@ -25,20 +26,22 @@ public class pressureDetecting : MonoBehaviour
     public float test_RT;
     [Range(0, 1)]
     public float test_RG;
+    */
 
     [SerializeField] private GameObject particle;
 
   
-    float checkTime = 10f;
+    float checkTime = 30f;
     float maxPain = 0f;
 
-    public bool ended = false;
+    public bool send = false;
 
     void Update()
     {
-        float sum = (test_LG + test_LT + test_RG + test_RT) / 4f;
+        //float sum = (test_LG + test_LT + test_RG + test_RT) / 4f;
+        float sum = (triggerInputDetector.GetLeftGripValue + triggerInputDetector.GetRightGripValue + triggerInputDetector.GetLeftTriggerValue + triggerInputDetector.GetRightTriggerValue) / 4f;
 
-        StartCoroutine(TimeChecker(checkTime));
+        //StartCoroutine(TimeChecker(checkTime));
 
         //while (checkTime > 0f)
         //{
@@ -54,14 +57,14 @@ public class pressureDetecting : MonoBehaviour
 
         //}
 
-        if (ended)
+        if (send)
         {
             int painstate = (int)(maxPain);
-            checkTime = 3f;
+            //checkTime = 10f;
             Debug.Log(painstate);
-            //udpnetwork.painState = painstate;
-            //udpnetwork.send = true;
-            gameObject.SetActive(false);
+            udpnetwork.painState = painstate;
+            udpnetwork.send = true;
+            //gameObject.SetActive(false);
         }
 
         checkTime = 3f;        
@@ -76,7 +79,7 @@ public class pressureDetecting : MonoBehaviour
         }
 
         particle.SetActive(true);
-        ended = true;
+        //ended = true;
     }
 
 }
