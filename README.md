@@ -1,4 +1,38 @@
-# XRControllerInput-ActionBased
- Based on the YouTube tutorial by Fist Full of Shrimp here: https://youtu.be/Kh_94glqO-0
+# 2024 SNUH x XREAL WINTER Hackathon
+ ![image](https://github.com/KimGyoungTae/XREAL_HackAthon/assets/83820089/493c3412-1d1a-4c47-b7b7-e12102e80254)
+<br>
+
+🎥 데모 영상 : https://youtube.com/shorts/wqapMysYgAk?feature=share
+
+🕰️ 프로젝트 기간 : 2024년 1월 20일 ~ 2024년 1월 21일
+
+<br>
+
+## 🖥️ 프로젝트 소개
+- 서울대병원 융합의학기술원(SNUH)이 주최하고, XREAL이 공동 주관하는 5기 겨울 해커톤 프로젝트입니다.
+- "XR 기술을 활용해 함께 그려보는 어린이 병원의 미래" 주제로 제시된 6개 문제 중 하나를 랜덤으로 정해 팀 프로젝트를 진행합니다.
+- "A-ya" 는 통증(Pain)에 대한 문제를 담당하여 신체적 고통이나 만성 질환의 증상으로부터 환자의 주의를 다른 곳으로 돌리는 XR 서비스를 제공합니다.
+- "A-ya" 는 통증 정도에 따라서, 통증 아동 특성에 따라서 소아 개인 맞춤형 통증 완화 키트를 제공하여 솔루션을 제시합니다.
+<br>
+
+## 📌 프로젝트 기획의도
+- 한 해 약 23만명의 아이들이 수술을 받고, 그 중 82%는 수술 이후 중등도 이상의 통증을 느낌.
+- 약물에 대한 내성, 호흡 곤란 등의 부작용 우려도 있어 소아 아이한테는 마약성 진통제의 사용을 재고하고 있음. 그렇기에 의료진은 성인한테처럼 편하게 마약성 진통제 처방이 어려운 상황.
+- 결국, 아이들이 현재 의존할 수 있는 것은 경도의 진통제, 그리고 비약물적 요법으로 제한됨을 알고, 아래의 Solution이 필요할 것이라고 판단함.
+<details>
+<summary><h4>Solution</h4></summary>
  
- To use: Create an empty gameobject and add the scripts "TriggerInputDetector" (from Scripts folder) and "inputdata" (FFOS Tutorial Resources folder,  then FFOSControllerData folder) onto it. Assign the Canvas texts to see the values in game view, not just debug log.
+ 1. 만 12세 미만 아동의 중등도 통증에 대한 비약물적 치료 방법 필요
+ 
+ 2. 시청각에 머물러있는 기존 콘텐츠를 넘어 의료적으로 기능하는 XR 콘텐츠 필요
+    
+ 3. 6~12세 수술 후 통증을 호소하는 소아 환자 대상을 프로젝트의 주요 타겟으로 설정함. 
+<br>
+</details>
+
+## 🙋 프로젝트 팀원 구성
+XREAL 리서치.디자인.데브와 SNUH 의대생이 함께 팀을 이루어 프로젝트를 진행하였습니다.
+- 리서치 2명 : 이수영, 양희원
+- 디자인 2명 : 김수현, 현지선
+- 데브 3명 : 김승아, 김경태, 노희진
+- SNUH 의대생 1명 : 원욱희
